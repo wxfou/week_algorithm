@@ -66,7 +66,6 @@ class Trie(object):
             cur_node = self.root
             prefix_node = self.root
         mark = True
-        # 必须从第一个结点开始对比
         for i in range(len(sequence)):
             if i == 0:
                 if sequence[i] != cur_node.value:
