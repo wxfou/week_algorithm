@@ -8,7 +8,6 @@ class PCFG(object):
 
     def parse_sentence(self, sentence):
         sents = sentence.split()
-#         best_path = [[{}]*len(sents)]*len(sents)    # Error!! 共享同一块内存区域!!
         best_path = [[{} for _ in range(len(sents))] for _ in range(len(sents))]
 
         # initialization
@@ -28,7 +27,7 @@ class PCFG(object):
                 j = i + l
                 for x in self.non_terminal:
                     tmp_best_x = {'prob':0, 'path':None}
-                    for key, value in self.rules_prob[x].iteritems():
+                    for key, value in self.rules_prob[x].items():
                         if key[0] not in self.non_terminal: 
                             break
                         for s in range(i, j):
@@ -41,18 +40,18 @@ class PCFG(object):
 
         # parse result
         self._parse_result(0, len(sents)-1, self.start_symbol)
-        print "prob = ", self.best_path[0][len(sents)-1][self.start_symbol]['prob']
+        print ("prob = ", self.best_path[0][len(sents)-1][self.start_symbol]['prob'])
 
 
     def _parse_result(self, left_idx, right_idx, root, ind=0):
         node = self.best_path[left_idx][right_idx][root]
         if node['path']['split'] is not None:
-            print '\t'*ind, (root, self.rules_prob[root].get(node['path']['rule']))
+            print ('\t'*ind, (root, self.rules_prob[root].get(node['path']['rule'])))
             self._parse_result(left_idx, node['path']['split'], node['path']['rule'][0], ind+1)
             self._parse_result(node['path']['split']+1, right_idx, node['path']['rule'][1], ind+1)
         else:
-            print '\t'*ind, (root, self.rules_prob[root].get((node['path']['rule'],))), 
-            print '--->', node['path']['rule']
+            print ('\t'*ind, (root, self.rules_prob[root].get((node['path']['rule'],))), )
+            print ('--->', node['path']['rule'])
 
 
 
