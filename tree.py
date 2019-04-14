@@ -1,7 +1,6 @@
 # -*- coding:utf-8 -*-
 """
-Description:双向字典树
-迭代次数默认最大999。
+双向字典树
 
 @author: wuxiaofei
 @date: 2019/4/15
