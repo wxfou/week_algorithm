@@ -14,8 +14,7 @@
    
  E = 8  
  minPts = 8  
-   
- #find out the core points  
+    
  other_points =[]  
  core_points=[]  
  plotted_points=[]  
