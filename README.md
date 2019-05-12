@@ -30,4 +30,5 @@ NLP算法\
 学习tensorflow\
 \
 针对公司项目：\
-学习强化学习课程   具体课程视频有需要的可以参见  链接:https://pan.baidu.com/s/1S4xVWbufVwsEQKFCB7niAw  密码:rse8
+学习强化学习课程。\
+具体课程视频有需要的可以参见  链接:https://pan.baidu.com/s/1S4xVWbufVwsEQKFCB7niAw  密码:rse8
