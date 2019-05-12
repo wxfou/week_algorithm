@@ -49,10 +49,10 @@ for i in range(20):
     rand_index = np.random.choice(len(x_v_train), size=batch_size)
     rand_x = x_v_train[rand_index]
     rand_y = np.transpose([y_v_train[rand_index]])
-    sess.run(to_train, feed_dict={x_data: rand_x, y_target: rand_y})
+    sess.run(to_train, feed_dict={x_data: rand_x, y_target: rand_y})     #数据进行训练
     
 y_test = np.reshape(y_v_test, (30,1))
-array = sess.run(model,feed_dict={x_data: x_v_test, y_target: y_test})
+array = sess.run(model,feed_dict={x_data: x_v_test, y_target: y_test})   #测试数据进行预测
 print(array)
 
 #采用鸢尾花数据进行预测，随机选择20%的测试集进行测试
