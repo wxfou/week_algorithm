@@ -4,7 +4,7 @@
 全都算法都用tensorflow实现，时常为六个月。
 
 机器学习算法
-bagging族：决策树、随机森林
+bagging族：决策树、随机森林\
 Boosting族：Adboost、GBDT、xgboost、lightGBM
 EM族：HMM、GMM、PCFG
 对数线性模型族：logistic、最大熵模型、CRF
