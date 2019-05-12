@@ -54,3 +54,5 @@ for i in range(20):
 y_test = np.reshape(y_v_test, (30,1))
 array = sess.run(model,feed_dict={x_data: x_v_test, y_target: y_test})
 print(array)
+
+
