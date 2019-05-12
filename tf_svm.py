@@ -21,25 +21,25 @@ y_v_train=y_vals[train_data]
 y_v_test=y_vals[test_data]
 
 batch_size=100
-x_data = tf.placeholder(shape=[None,4],dtype=tf.float32)
-y_target=tf.placeholder(shape=[None,1],dtype=tf.float32)
+x_data = tf.placeholder(shape=[None,4],dtype=tf.float32)   #4列数据，行数不定
+y_target=tf.placeholder(shape=[None,1],dtype=tf.float32)   #label结果
 
-A=tf.Variable(tf.random_normal(shape=[4,1]))
-B=tf.Variable(tf.random_normal(shape=[1,1]))
+A=tf.Variable(tf.random_normal(shape=[4,1]))   #tf.random_normal用于从服从指定正太分布的数值中取出指定个数的值   
+B=tf.Variable(tf.random_normal(shape=[1,1]))   #tf.Variable表示可通过对其运行操作来改变其值的张量
 
-model=tf.subtract(tf.matmul(x_data,A),B)    #y=Ax+b
-l2=tf.reduce_sum(tf.square(A))              #l2正则化
+model=tf.subtract(tf.matmul(x_data,A),B)    
+l2=tf.reduce_sum(tf.square(A))              #开方求和。即：l2正则化
 alpha=tf.constant([0.01])                   #alpha变量
 classification=tf.reduce_mean(tf.maximum(0.,tf.subtract(1.,tf.multiply(model,y_target))))
 loss=tf.add(classification,tf.multiply(alpha,l2))
 
-gdo=tf.train.GradientDescentOptimizer(0.01)
+gdo=tf.train.GradientDescentOptimizer(0.01)   #通过梯度下降进行训练
 to_train = gdo.minimize(loss)
 
 saver = tf.train.Saver()
 
-init = tf.global_variables_initializer()
-sess.run(init)
+init = tf.global_variables_initializer()   #初始化变量
+sess.run(init)                             #执行初始化
 
 loss_vec = []
 train_accuracy = []
